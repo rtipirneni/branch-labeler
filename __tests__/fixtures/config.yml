@@ -1,0 +1,30 @@
+# Shorthand string
+feature: "feature/*" # Apply label "feature" if head matches "feature/*"
+# Shorthand array
+support: ["support/*", "sup/*"] # Apply label "feature" if head matches "feature/*"
+
+# Regular head and base usage
+chore:
+  head: "chore/*" # Apply label "chore" if head matches "chore/*"
+bugfix: # Apply label "bugfix" if head matches one of "bugfix/*" or "hotfix/*"
+  head: ["bugfix/*", "hotfix/*"]
+release: # Apply label "release" if base matches "release/*"
+  base: "release/*"
+🧩 Subtask: # Apply label "🧩 Subtask" if head and base match "feature/*"
+  head: "feature/*"
+  base: "feature/*"
+
+# RegExp head and base usage
+choreregex:
+  headRegExp: 'chore-regex[/].*' # Apply label "choreregex" if head matches "chore-regex/*"
+bugfixregex: # Apply label "bugfixregex" if head matches one of "bugfix-regex/*" or "hotfix-regex/*"
+  headRegExp: ['bugfix-regex[/].*', 'hotfix-regex[/].*']
+releaseregex: # Apply label "releaseregex" if base matches "release-regex/*"
+  baseRegExp: 'release-regex[/].*'
+🧩 Subtaskregex: # Apply label "🧩 Subtaskregex" if head and base match "feature-regex/*"
+  headRegExp: 'feature-regex[/].*'
+  baseRegExp: 'feature-regex[/].*'
+
+# Dynamic tags based on branch
+$1:
+  baseRegExp: 'release-regexp[/](.*)'
